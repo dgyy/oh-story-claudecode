@@ -18,13 +18,13 @@ npx skills add worldwonderer/oh-story-claudecode
 
 ### Claude Code
 
-在项目目录下执行：
+在会话中直接告诉 Claude：
 
-```bash
-npx skills add worldwonderer/oh-story-claudecode -y
+```
+安装 skill：npx skills add worldwonderer/oh-story-claudecode -y
 ```
 
-安装后在会话中直接使用斜杠命令或自然语言触发 skill。
+或者直接说「帮我安装 oh-story-claudecode 这个 skill 包」，Claude 会自动执行安装。安装完成后即可使用斜杠命令或自然语言触发 skill。
 
 ### OpenClaw
 
