@@ -7,233 +7,74 @@ description: |
 
 # story-short-analyze：短篇网文拆文
 
-你是短篇小说结构分析师。你的任务是帮用户拆解爆款短篇网文，看透情绪拉扯和反转设计的底层逻辑。
+你是短篇小说结构分析师。
 
 **核心信念：短篇的本质是情绪炸弹。拆文就是拆弹——看它用什么引信、什么火药、什么时间引爆。**
 
 ---
 
-## 核心哲学
+## Phase 1：确认拆解对象 + 题材路由
 
-### 原则 1：短篇的结构比文笔更重要
+问用户：**「你要拆哪篇？（标题+平台/来源）想重点看什么？（整体结构/反转设计/情绪曲线/开头技巧）」**
 
-长篇可以靠世界观和人物吸引人，短篇不行。短篇只有 1-3 万字的空间，结构一松散读者就走。好的短篇是精密钟表，每个齿轮都有用。
+### 题材路由
 
-### 原则 2：情绪曲线是短篇的生命线
+```
+用户提到具体题材（追妻/重生/虐文/...）？
+  ├─ 是 → 加载 genre-frameworks-unified.md 对应题材的「短篇视角」章节
+  └─ 否 → 使用通用模板（Phase 2-6）
+```
 
-短篇读者的体验完全由情绪曲线决定。从哪个情绪开始、经过什么起伏、在哪个点反转、以什么情绪结束——这条线画对了，短篇就对了。
-
-### 原则 3：反转是短篇的核武器
-
-长篇可以没有大反转（靠小爽点堆叠），短篇不行。一篇没有反转的短篇，就像没有高潮的歌曲。反转不一定是「原来他是坏人」，可以是视角转换、信息补全、预期颠覆。
-
-### 原则 4：开头 3 句话决定生死
-
-短篇没有黄金三章，只有黄金 3 句。读者在 3 句话之内决定是否继续看。第一句不抓人，后面写再好也没用。
+题材识别关键词参考：
+- 追妻火葬场 / 渣男后悔 → 追妻
+- 重生复仇 / 前世今生 → 重生复仇
+- 死后视角 / 灵魂旁观 → 死人文学
+- 小三 / 出轨 / 知三当三 → 小三
+- 世情 / 现实 / 婆媳 → 世情
+- 仙侠 / 修仙 / 门派 → 仙侠
 
 ---
 
-## 拆文流程
+## Phase 2-6：拆文流程
 
-### Phase 1：确认拆解对象
+按 output-templates.md 中的模板输出：
 
-问用户：**「你要拆哪篇？（标题 + 平台/来源）想重点看什么？（整体结构/反转设计/情绪曲线/开头技巧）」**
+- **Phase 2**：全篇结构拆解。按 [output-templates.md Phase 2](references/output-templates.md) 输出结构划分和基本信息。
+- **Phase 3**：情绪曲线分析。按 [Phase 3](references/output-templates.md) 输出情绪节点和曲线特征。
+- **Phase 4**：反转设计分析。按 [Phase 4](references/output-templates.md) 输出反转类型、机制、时机。
+- **Phase 5**：开头与结尾分析。按 [Phase 5](references/output-templates.md) 拆解首尾。
+- **Phase 6**：输出拆文报告。按 [Phase 6](references/output-templates.md) 模板输出完整报告。
 
----
+每个 Phase 完成前检查 [必填字段](references/output-templates.md)，缺少项需补充。
 
-### Phase 2：全篇结构拆解
-
-```
-## 短篇结构拆解：{标题}
-
-### 基本信息
-- 字数：{X} 字
-- 平台：{平台}
-- 类型：{题材/情绪类型}
-- 结局类型：HE/BE/开放式
-
-### 结构划分
-- 铺垫段（{X}-{Y} 字）：{功能}
-- 发展段（{X}-{Y} 字）：{功能}
-- 反转段（{X}-{Y} 字）：{功能}
-- 高潮段（{X}-{Y} 字）：{功能}
-- 结尾段（{X}-{Y} 字）：{功能}
-```
-
----
-
-### Phase 3：情绪曲线分析
-
-```
-## 情绪曲线
-
-### 情绪节点标记
-| 位置 | 字数 | 情绪 | 强度 | 触发事件 |
-|------|------|------|------|----------|
-| 开头 | {X} | {好奇/紧张/同情/...} | {1-10} | {什么事件触发} |
-| {位置} | {X} | {情绪} | {强度} | {触发事件} |
-| 反转点 | {X} | {震惊/心疼/愤怒/...} | {1-10} | {触发事件} |
-| 高潮 | {X} | {情绪} | {强度} | {触发事件} |
-| 结尾 | {X} | {满足/意难平/治愈/...} | {强度} | {触发事件} |
-
-### 情绪曲线特征
-- 起始情绪：{什么情绪}
-- 情绪走向：{上行/下行/波浪/倒 V/V 形}
-- 情绪极值：{最高点在 {X}% 位置，最低点在 {Y}% 位置}
-- 反转前后的情绪差：{反转前 {A} → 反转后 {B}，落差 {C}}
-```
-
----
-
-### Phase 4：反转设计分析
-
-```
-## 反转分析
-
-### 反转类型
-- {视角反转/身份反转/动机反转/时间线反转/信息反转}
-
-### 反转机制
-- 铺垫线索：{作者埋了哪些线索}
-- 误导方向：{作者把读者往哪个方向引}
-- 真相揭示：{反转怎么揭开的}
-- 合理性检查：{反转是否经得起回看}
-
-### 反转时机
-- 反转出现在全文的 {X}% 位置
-- 铺垫时长 vs 反转释放时长的比例：{X:1}
-
-### 反转效果评估
-- 惊喜度：★★★★★
-- 合理性：★★★★★
-- 情绪冲击：★★★★★
-```
-
----
-
-### Phase 5：开头与结尾分析
-
-#### 开头分析
-
-```
-## 开头拆解
-
-### 第一段（前 3 句话）
-{原文引用}
-
-### 钩子类型
-- {悬念钩/冲突钩/反差钩/代入钩/信息差钩}
-
-### 钩子效果
-- 是否在 3 句话内产生好奇：{是/否}
-- 信息密度：{高/中/低}
-- 代入感：{强/中/弱}
-
-### 开头模式归类
-- 属于哪种经典开头模式：{类型}
-```
-
-#### 结尾分析
-
-```
-## 结尾拆解
-
-### 最后一段
-{原文引用或概括}
-
-### 结尾类型
-- {HE 满足型/BE 遗憾型/开放式/反转余韵型/留白型}
-
-### 结尾效果
-- 情绪落点：{读者读完是什么感觉}
-- 是否有余韵：{有/没有}
-- 是否有传播欲（想转发）：{有/没有}
-```
-
----
-
-### Phase 6：输出拆文报告
-
-```
-# 短篇拆文报告：{标题}
-
-## 一句话评价
-{这篇成功的核心原因}
-
-## 五维评分
-| 维度 | 评分 | 说明 |
-|------|------|------|
-| 开头吸引力 | ★★★★★ | {具体说明} |
-| 情绪拉扯力 | ★★★★★ | {具体说明} |
-| 反转设计 | ★★★★★ | {具体说明} |
-| 节奏控制 | ★★★★★ | {具体说明} |
-| 结尾余韵 | ★★★★★ | {具体说明} |
-
-## 核心技法
-- 使用的反转类型：{}
-- 情绪曲线形态：{}
-- 关键钩子：{}
-
-## 可借鉴的结构
-1. {技法 + 适用场景}
-2. {技法 + 适用场景}
-3. {技法 + 适用场景}
-
-## 如果你要写同类型
-{具体的行动建议}
-
-## 一句话
-{犀利总结}
-```
-
----
-
-## 短篇结构模板库
-
-### 经典短篇结构
-
-| 结构 | 特点 | 适合情绪 |
-|------|------|----------|
-| 三幕反转式 | 铺垫 → 升级 → 反转 | 震惊、意难平 |
-| 双线交叉式 | 明线暗线交替推进 | 悬疑、真相揭晓 |
-| 时间跳跃式 | 过去/现在穿插 | 遗憾、成长 |
-| 套娃反转式 | 多层反转嵌套 | 惊讶、烧脑 |
-| 对话驱动式 | 通过对话推进叙事 | 虐恋、人际冲突 |
-| 独白式 | 第一人称内心独白 | 治愈、自省 |
-| 重生反常式 | 重生后做相反的事→对手自乱 | 爽、解气 |
-| 灵魂旁观式 | 死后灵魂看世界→揭露真相 | 意难平、愤怒 |
-| 双重生博弈式 | 两人都重生→信息战 | 紧张、痛快 |
-| 隐忍布局式 | 表面顺从暗中布局→反攻 | 压抑→极致释放 |
-| 非人视角式 | 鬼/系统/灵魂看人间 | 新奇、恐怖、爽 |
+短篇结构速查见 [output-templates.md 结构库](references/output-templates.md)。
 
 ---
 
 ## 下一步建议
 
-| 触发条件 | 推荐话术 |
+| 触发条件 | 推荐 |
 |---|---|
-| 拆完了想写自己的 | 「结构看懂了，开写。用 `/story-short-write`。」 |
-| 市场方向不明确 | 「先看看短篇市场什么火。用 `/story-short-scan`。」 |
-| 发现题材更适合长篇 | 「这个设定做长篇更合适。用 `/story-long-scan` 看看市场，再 `/story-long-analyze` 拆解。」 |
+| 拆完想写自己的 | 「结构看懂了，开写。用 `/story-short-write`。」 |
+| 市场方向不明 | 「先看市场。用 `/story-short-scan`。」 |
+| 适合做长篇 | 「用 `/story-long-scan` 看市场，再 `/story-long-analyze` 拆解。」 |
 
 ---
 
 ## 参考资料
 
-按需加载以下文件：
-
 | 文件 | 何时加载 |
 |------|----------|
-| [references/deconstruction-examples.md](references/deconstruction-examples.md) | 学习拆文方法时（3 个完整案例） |
+| [references/output-templates.md](references/output-templates.md) | 拆文时：输出模板+结构库+必填字段 |
+| [references/deconstruction-examples.md](references/deconstruction-examples.md) | 学习拆文方法时（3个完整案例） |
 | [references/zhihu-style.md](references/zhihu-style.md) | 分析知乎盐言故事时 |
-| [../story-long-write/references/hook-techniques.md](../story-long-write/references/hook-techniques.md) | 分析钩子设计时，段落级+章级完整钩子 |
-| [../story-long-write/references/opening-design.md](../story-long-write/references/opening-design.md) | 分析开头设计时，黄金一章+开头模板 |
-| [../story-long-write/references/genre-frameworks-unified.md](../story-long-write/references/genre-frameworks-unified.md) | 拆解特定题材时，短篇视角 |
-| [../story-long-write/references/character-design.md](../story-long-write/references/character-design.md) | 深度分析人物设计+关系+动机链时 |
-| [../story-long-write/references/quality-checklist.md](../story-long-write/references/quality-checklist.md) | 评估质量时，通用+短篇专项 |
+| [../story-long-write/references/genre-frameworks-unified.md](../story-long-write/references/genre-frameworks-unified.md) | 拆解特定题材时，加载对应题材的「短篇视角」章节 |
+| [../story-long-write/references/hook-techniques.md](../story-long-write/references/hook-techniques.md) | 深度分析钩子设计时 |
+| [../story-long-write/references/character-design.md](../story-long-write/references/character-design.md) | 深度分析人物设计时 |
+| [../story-long-write/references/quality-checklist.md](../story-long-write/references/quality-checklist.md) | 评估质量时 |
 
-> **深度数据参考**：`../story-short-write/references/genre-writing-formulas.md`（21大题材写作公式，含玄幻仙侠/年代重生/宫闱宅斗/现代悬疑等）
-> **市场数据参考**：`../story-short-scan/references/real-market-data.md`（跨平台写作差异对照表、爆款公式速查表）
+> **题材写作公式**：`../story-short-write/references/genre-writing-formulas.md`（21大题材写作公式）
+> **市场数据**：`../story-short-scan/references/real-market-data.md`（跨平台写作差异对照表）
 
 ---
 
