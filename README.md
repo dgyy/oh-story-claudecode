@@ -134,10 +134,6 @@ npx skills add worldwonderer/oh-story-claudecode -y
 
 这套 skill 现在能让我度过找工作的过渡期 :joy:，希望也能帮到有需要的朋友。
 
-## Community
-
-[LINUX DO - The New Ideal Community](https://linux.do)
-
 ## Star History
 
 <a href="https://www.star-history.com/?repos=worldwonderer%2Foh-story-claudecode&type=date&legend=top-left">
@@ -147,3 +143,11 @@ npx skills add worldwonderer/oh-story-claudecode -y
    <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=worldwonderer/oh-story-claudecode&type=date&legend=top-left" />
  </picture>
 </a>
+
+## 贡献
+
+欢迎贡献新 skill、补充知识库、更新市场数据。详见 [CONTRIBUTING.md](CONTRIBUTING.md)。
+
+## Community
+
+[LINUX DO - The New Ideal Community](https://linux.do)
