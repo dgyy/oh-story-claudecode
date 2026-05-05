@@ -257,23 +257,30 @@ async function main() {
 
   // 第二步：检测 profile
   const defaultProfile = path.join(config.profileDir, "Default");
-  if (!fs.existsSync(defaultProfile)) {
-    err(`未找到 Chrome 默认 profile: ${defaultProfile}`);
-    err("请确保已安装 Google Chrome 并至少使用过一次。");
-    process.exit(1);
-  }
-  log(`Chrome profile: ${config.profileDir}`);
+  const hasProfile = fs.existsSync(defaultProfile);
 
   if (DRY_RUN) {
+    log(`Chrome profile: ${config.profileDir} (${hasProfile ? "存在" : "不存在"})`);
     log("\n--- dry-run 模式：只打印操作，不执行 ---");
-    log(`1. 复制 profile: ${config.profileDir}/Default → ${debugProfile}/Default`);
-    log(`2. 刷新 Cookie 和 Login Data`);
+    if (hasProfile) {
+      log(`1. 复制 profile: ${config.profileDir}/Default → ${debugProfile}/Default`);
+      log(`2. 刷新 Cookie 和 Login Data`);
+    } else {
+      log(`1. ⚠️ 无用户 profile，将以空 profile 启动 Chrome`);
+    }
     log(`3. 停止现有 Chrome 进程`);
     log(`4. 启动 Chrome: ${chromePath} --remote-debugging-port=${CDP_PORT} --user-data-dir=${debugProfile}`);
     log(`5. 验证 CDP 端口 http://127.0.0.1:${CDP_PORT}/json/version`);
     ok("dry-run 完成。");
     process.exit(0);
   }
+
+  if (!hasProfile) {
+    err(`未找到 Chrome 默认 profile: ${defaultProfile}`);
+    err("请确保已安装 Google Chrome 并至少使用过一次。");
+    process.exit(1);
+  }
+  log(`Chrome profile: ${config.profileDir}`);
 
   // 第三步：检查 CDP 端口是否已就绪
   const portInUse = await isPortListening(CDP_PORT);
