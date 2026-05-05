@@ -13,7 +13,8 @@ metadata:
 
 ## 前置条件
 
-- macOS，已安装 Google Chrome
+- Windows（实验性）/ macOS / Linux，已安装 Google Chrome
+- Node.js 16+（Atomics.wait + SharedArrayBuffer）
 - `agent-browser` 命令行工具已安装
 
 ---
@@ -21,7 +22,7 @@ metadata:
 ## 第一步：启动 CDP Chrome 环境
 
 ```bash
-bash {SKILL_DIR}/scripts/setup_cdp_chrome.sh 9222
+node {SKILL_DIR}/scripts/setup-cdp-chrome.js 9222
 ```
 
 成功后所有 `agent-browser` 命令带 `--cdp 9222`。
@@ -75,7 +76,7 @@ agent-browser --cdp 9222 type "<CSS selector>" "<text>"
 
 | 问题 | 解决方案 |
 |------|----------|
-| CDP 端口未监听 | 重新运行 `setup_cdp_chrome.sh` |
+| CDP 端口未监听 | 重新运行 `setup-cdp-chrome.js` |
 | 页面跳转到登录页 | `snapshot -i` 找登录按钮并操作 |
 | eval 返回 null | 检查 localStorage key 名称，或改用 `document.cookie` |
-| Chrome 进程残留 | `pkill -9 -f "Google Chrome"` 后重新运行脚本 |
+| Chrome 进程残留 | macOS/Linux: `pkill -9 -x 'Google Chrome'` / Windows: `taskkill /F /IM chrome.exe`，后重新运行脚本 |

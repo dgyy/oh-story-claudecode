@@ -5,7 +5,7 @@
  *   const { ab, sleep, evalJSON, scrollLoad, getArg, safeStr } = require("./cdp-utils");
  *
  * 前置：
- *   bash ~/.claude/skills/browser-cdp/scripts/setup_cdp_chrome.sh 9222
+ *   node {SKILL_DIR}/browser-cdp/scripts/setup-cdp-chrome.js 9222
  */
 
 const { execSync } = require("child_process");
@@ -33,9 +33,9 @@ function ab(port, ...args) {
   }
 }
 
-/** 等待 ms 毫秒 */
+/** 等待 ms 毫秒（跨平台，不依赖系统 sleep 命令） */
 function sleep(ms) {
-  execSync(`sleep ${Math.ceil(ms / 1000)}`);
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
 }
 
 /** 在浏览器内执行 JS 并解析 JSON 返回值 */

@@ -16,7 +16,7 @@
  *   node qidian-rank-scraper.js --type all                     # 全部榜单
  *
  * 前置：
- *   bash ~/.claude/skills/browser-cdp/scripts/setup_cdp_chrome.sh 9222
+ *   node {SKILL_DIR}/browser-cdp/scripts/setup-cdp-chrome.js 9222
  */
 
 const fs = require("fs");
